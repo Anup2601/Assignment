@@ -3,6 +3,7 @@ import Hero from "../components/heroSection/Hero";
 import { Testimonials } from "../components/Testimonials";
 import Header from "../layouts/Header";
 import { Listings } from "../components/Listings";
+import  {About}  from "../components/About";
 
 export const Home: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ export const Home: React.FC = () => {
         <Explore/>
         <Testimonials/>
         <Listings/>
+        <About/>
     </>
     
   );
