@@ -1,33 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import {Heading3, Loader} from "lucide-react";
+import {Toaster} from "react-hot-toast"
+import Header from "./layouts/Header";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App: React.FC =() => {
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+       <Routes>
+        <Route path="/" element={<Header/>} />
+      </Routes>
+
+      <Toaster/>
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="size-10 animate-spin "/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
