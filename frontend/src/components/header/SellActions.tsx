@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const SellActions: React.FC = () => {
   return (
     <div className="flex gap-8 items-center self-stretch my-auto text-sm tracking-wide min-w-60 text-neutral-900">

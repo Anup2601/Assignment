@@ -1,4 +1,3 @@
-import React from 'react';
 import { Logo } from '../components/header/Logo';
 import { LocationSelector } from '../components/header/LocationSelector';
 import { Navigation } from '../components/header/Navigation';

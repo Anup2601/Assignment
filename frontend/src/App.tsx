@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import {Heading3, Loader} from "lucide-react";
 import {Toaster} from "react-hot-toast"
-import Header from "./layouts/Header";
+import { Home } from "./pages/Home";
 
 export const App: React.FC =() => {
 
@@ -9,7 +9,7 @@ export const App: React.FC =() => {
   return (
     <>
        <Routes>
-        <Route path="/" element={<Header/>} />
+        <Route path="/" element={<Home/>} />
       </Routes>
 
       <Toaster/>
