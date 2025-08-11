@@ -28,7 +28,7 @@ export const Navigation: React.FC = () => {
   ];
 
   return (
-    <nav className="flex flex-wrap gap-10 justify-center items-center self-stretch h-full text-xs font-medium text-center min-w-60 text-neutral-600 max-md:max-w-full">
+    <nav className="flex flex-wrap gap-18 justify-center items-center self-stretch text-xs font-medium text-center min-w-60 text-neutral-600 max-md:max-w-full">
       <SellActions />
       {navigationItems.map((item, index) => (
         <NavigationItem
