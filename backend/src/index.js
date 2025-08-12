@@ -1,11 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import connectDB from "../dist/config/db.js";
+import connectDB from "./config/db.js";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import http from "http";
+import carRoutes from "./routes/carRouts.js";
 // Load env variables
 dotenv.config({ path: "../.env" });
 // Express app
@@ -21,6 +22,7 @@ app.use(cors({
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
+app.use('/api/cars', carRoutes);
 // Additional CORS headers
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");
@@ -29,9 +31,9 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
-app.use("/", (req, res) => {
-    res.send("server is working");
-});
+
+
+
 // Path handling for production build
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
