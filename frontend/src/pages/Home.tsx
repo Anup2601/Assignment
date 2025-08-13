@@ -2,8 +2,10 @@ import Explore from "../components/explore.tsx/Explore";
 import Hero from "../components/heroSection/Hero";
 import { Testimonials } from "../components/Testimonials";
 import Header from "../layouts/Header";
-import { Listings } from "../components/Listings";
+import { CarListings } from "../components/CarListings";
 import  {About}  from "../components/About";
+import { BikeListings } from "../components/BikeListings";
+import { Recommendation } from "../components/Recommendation";
 
 export const Home: React.FC = () => {
   return (
@@ -12,7 +14,9 @@ export const Home: React.FC = () => {
         <Hero/>
         <Explore/>
         <Testimonials/>
-        <Listings/>
+        <CarListings/>
+        <BikeListings/>
+        <Recommendation/>
         <About/>
     </>
     

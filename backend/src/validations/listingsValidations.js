@@ -3,10 +3,10 @@ import Joi from 'joi';
 export const validateListing = (req, res, next) => {
     const schema = Joi.object({
         brand: Joi.string().required(),
-        // image: Joi.string().uri().required(),
+        image: Joi.string().uri().required(),
         price: Joi.number().required(),
         eco: Joi.string().required(),
-        yearKm: Joi.number().required(),
+        yearKm: Joi.number(),
         model: Joi.string().required(),
         location: Joi.string().required(),
         date: Joi.string().required()

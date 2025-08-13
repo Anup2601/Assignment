@@ -2,9 +2,9 @@ import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import a1 from "../assets/a3.jpg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-interface Car {
+interface Bike {
   _id: string;       // MongoDB uses _id
   brand: string;
   image: string;
@@ -25,18 +25,18 @@ const brands = [
   "Toyota",
 ];
 
-export const Listings: React.FC = () => {
-  const [cars, setCars] = useState<Car[]>([]);
+export const BikeListings: React.FC = () => {
+  const [bikes, setBikes] = useState<Bike[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/cars", { withCredentials: true })
+      .get("http://localhost:5000/api/bikes", { withCredentials: true })
       .then((res) => {
-        setCars(res.data); // Data from backend
+        setBikes(res.data); // Data from backend
       })
       .catch((err) => {
-        console.error("Error fetching cars:", err);
+        console.error("Error fetching bikes:", err);
       });
   }, []);
 
@@ -44,7 +44,7 @@ export const Listings: React.FC = () => {
     <section className="p-6 mx-9">
       {/* Heading */}
       <div className="mb-6">
-        <h2 className="text-4xl font-bold">Newly Listed Cars</h2>
+        <h2 className="text-4xl font-bold">Newly Listed Bikes</h2>
       </div>
 
       {/* Brand Tags */}
@@ -61,17 +61,17 @@ export const Listings: React.FC = () => {
 
       {/* Scrollable Cards */}
       <div className="flex overflow-x-auto space-x-12 scrollbar-hide scroll-smooth pt-2">
-        {cars.map((car) => (
+        {bikes.map((bike) => (
             // <Link to={`/${car._id}`} key={car._id}>
           <div
-            key={car._id}
-            onClick={() => navigate(`/${car._id}`)}
+            key={bike._id}
+            onClick={() => navigate(`/bikes/${bike._id}`)}
             className="max-w-[310px] max-h-[460px] min-w-[310px]: border rounded-xl p-3 bg-white shadow-lg flex-shrink-0"
           >
             <div className="relative">
               <img
-                src={car.image || a1} 
-                alt={car.model}
+                src={  a1}
+                alt={bike.model}
                 className="w-full h-70 object-cover rounded-lg"
               />
               <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow">
@@ -80,14 +80,14 @@ export const Listings: React.FC = () => {
             </div>
             <div className="mt-6 m-3">
               <div className="flex justify-between text-2xl font-semibold">
-                <span>{car.price}</span>
-                <span className="text-gray-500">Eco: {car.eco}</span>
+                <span>{bike.price}</span>
+                <span className="text-gray-500">Eco: {bike.eco}</span>
               </div>
-              <p className="text-gray-500 text-xl">{car.yearKm}</p>
-              <p className="text-base font-medium">{car.model}</p>
+              <p className="text-gray-500 text-xl">{bike.yearKm}</p>
+              <p className="text-base font-medium">{bike.model}</p>
               <div className="flex justify-between text-xl text-gray-500 mt-2">
-                <span>{car.location}</span>
-                <span>{car.date}</span>
+                <span>{bike.location}</span>
+                <span>{bike.date}</span>
               </div>
             </div>
           </div>

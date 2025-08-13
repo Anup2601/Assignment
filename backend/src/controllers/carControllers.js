@@ -1,5 +1,4 @@
-import Car from "../models/listings.js";
-import { validateListing } from "../validations/listingsValidations.js";
+import Car from "../models/cars.js";
 
 // Create Car
 export async function createCar(req, res) {

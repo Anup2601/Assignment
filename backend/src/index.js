@@ -7,6 +7,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import http from "http";
 import carRoutes from "./routes/carRouts.js";
+import bikeRoutes from "./routes/bikeRoutes.js";
+import recomRoutes from "./routes/recommRoutes.js";
 // Load env variables
 dotenv.config({ path: "../.env" });
 // Express app
@@ -23,6 +25,8 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use('/api/cars', carRoutes);
+app.use('/api/bikes', bikeRoutes);
+app.use('/api/recommendations', recomRoutes);
 // Additional CORS headers
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:5173");

@@ -1,8 +1,11 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import {Heading3, Loader} from "lucide-react";
+import {Route, Routes,  } from "react-router-dom";
+import {Loader} from "lucide-react";
 import {Toaster} from "react-hot-toast"
 import { Home } from "./pages/Home";
-import  Product  from "./pages/product";
+import  CarProduct  from "./pages/product";
+
+import BikeProduct from "./pages/BikeProduct";
+import RecomProduct from "./pages/RecommProduct";
 
 export const App: React.FC =() => {
 
@@ -11,7 +14,9 @@ export const App: React.FC =() => {
     <>
        <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/:id" element={<Product/>} />
+        <Route path="car/:id" element={<CarProduct/>} />
+        <Route path="bikes/:id" element={<BikeProduct/>} />
+        <Route path="recommendations/:id" element={<RecomProduct/>} />
       </Routes>
       <Toaster/>
     </>
