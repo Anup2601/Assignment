@@ -17,7 +17,7 @@ export default function RecomProduct() {
   const [listing, setListing] = useState<Listing | null>(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/recommendations/${id}`)
+    axios.get(`https://assignment-backend-jke2.onrender.com/api/recommendations/${id}`)
       .then(res => setListing(res.data))
       .catch(err => console.error(err));
   }, [id]);

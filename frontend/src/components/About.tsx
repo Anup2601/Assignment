@@ -1,5 +1,5 @@
 import a1 from "../assets/a1.png";
-import a3 from "../assets/a3.jpg";
+// import a3 from "../assets/a3.jpg";
 
 export const About: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import {Route, Routes,  } from "react-router-dom";
-import {Loader} from "lucide-react";
+// import {Loader} from "lucide-react";
 import {Toaster} from "react-hot-toast"
 import { Home } from "./pages/Home";
 import  CarProduct  from "./pages/product";

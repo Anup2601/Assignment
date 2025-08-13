@@ -22,7 +22,7 @@ export const Recommendation: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/recommendations", { withCredentials: true })
+      .get("https://assignment-backend-jke2.onrender.com/api/recommendations", { withCredentials: true })
       .then((res) => {
         setRecommendations(res.data); // Data from backend
       })

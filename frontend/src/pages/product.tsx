@@ -17,7 +17,7 @@ export default function Product() {
   const [listing, setListing] = useState<Listing | null>(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/cars/${id}`)
+    axios.get(`https://assignment-backend-jke2.onrender.com/api/cars/${id}`)
       .then(res => setListing(res.data))
       .catch(err => console.error(err));
   }, [id]);

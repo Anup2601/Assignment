@@ -31,7 +31,7 @@ export const CarListings: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/cars", { withCredentials: true })
+      .get("https://assignment-backend-jke2.onrender.com/api/cars", { withCredentials: true })
       .then((res) => {
         setCars(res.data); // Data from backend
       })

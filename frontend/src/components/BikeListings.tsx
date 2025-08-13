@@ -5,7 +5,7 @@ import a1 from "../assets/a3.jpg";
 import { useNavigate } from "react-router-dom";
 
 interface Bike {
-  _id: string;       // MongoDB uses _id
+  _id: string;       
   brand: string;
   image: string;
   price: string;
@@ -31,7 +31,7 @@ export const BikeListings: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/bikes", { withCredentials: true })
+      .get("https://assignment-backend-jke2.onrender.com/api/bikes", { withCredentials: true })
       .then((res) => {
         setBikes(res.data); // Data from backend
       })
