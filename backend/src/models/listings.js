@@ -5,7 +5,7 @@ const listingSchema = new Schema({
 //   image: { type: String, required: true },
   price: { type: Number, required: true },
   eco: { type: String, required: true },
-  yearKm: { type: Number },
+  yearKm: { type: String },
   model: { type: String, required: true },
   location: { type: String, required: true },
   date: { type: String, required: true }

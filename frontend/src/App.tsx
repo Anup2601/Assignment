@@ -2,6 +2,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import {Heading3, Loader} from "lucide-react";
 import {Toaster} from "react-hot-toast"
 import { Home } from "./pages/Home";
+import  Product  from "./pages/product";
 
 export const App: React.FC =() => {
 
@@ -10,12 +11,9 @@ export const App: React.FC =() => {
     <>
        <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/:id" element={<Product/>} />
       </Routes>
-
       <Toaster/>
-      <div className="flex items-center justify-center h-screen">
-        <Loader className="size-10 animate-spin "/>
-      </div>
     </>
   )
 }

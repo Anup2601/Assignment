@@ -1,11 +1,11 @@
-// src/components/CarListings.tsx
-import React from "react";
 import { Heart } from "lucide-react";
-import a1 from "../assets/a1.png";
-import a3 from "../assets/a3.jpg";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import a1 from "../assets/a3.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Car {
-  id: number;
+  _id: string;       // MongoDB uses _id
   brand: string;
   image: string;
   price: string;
@@ -25,79 +25,34 @@ const brands = [
   "Toyota",
 ];
 
-const cars: Car[] = [
-  {
-    id: 1,
-    brand: "Mahindra & Mahindra",
-    image: a3,
-    price: "$ 3,75,000",
-    eco: "82/100",
-    yearKm: "2014~75,000km",
-    model: "Honda City 1.5 s i-VTEC MT, 2013",
-    location: "Bengaluru",
-    date: "Today",
-  },
-  {
-    id: 2,
-    brand: "Tata Motors",
-    image: a1,
-    price: "$ 3,75,000",
-    eco: "82/100",
-    yearKm: "2014~75,000km",
-    model: "Honda City 1.5 s i-VTEC MT, 2013",
-    location: "Bengaluru",
-    date: "Today",
-  },
-  {
-    id: 3,
-    brand: "Maruti Suzuki",
-    image: a1,
-    price: "$ 3,75,000",
-    eco: "82/100",
-    yearKm: "2014~75,000km",
-    model: "Honda City 1.5 s i-VTEC MT, 2013",
-    location: "Bengaluru",
-    date: "Today",
-  },
-  {
-    id: 4,
-    brand: "Hyundai",
-    image: a1,
-    price: "$ 3,75,000",
-    eco: "82/100",
-    yearKm: "2014~75,000km",
-    model: "Honda City 1.5 s i-VTEC MT, 2013",
-    location: "Bengaluru",
-    date: "Today",
-  },
-  {
-    id: 5,
-    brand: "Honda",
-    image: a1,
-    price: "$ 3,75,000",
-    eco: "82/100",
-    yearKm: "2014~75,000km",
-    model: "Honda City 1.5 s i-VTEC MT, 2013",
-    location: "Bengaluru",
-    date: "Today",
-  },
-];
-
 export const Listings: React.FC = () => {
+  const [cars, setCars] = useState<Car[]>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/cars", { withCredentials: true })
+      .then((res) => {
+        setCars(res.data); // Data from backend
+      })
+      .catch((err) => {
+        console.error("Error fetching cars:", err);
+      });
+  }, []);
+
   return (
     <section className="p-6 mx-9">
-      
-
       {/* Heading */}
       <div className="mb-6">
         <h2 className="text-4xl font-bold">Newly Listed Cars</h2>
       </div>
+
       {/* Brand Tags */}
       <div className="flex flex-wrap gap-6 mb-4">
         {brands.map((brand) => (
           <button
             key={brand}
-            className="px-4 py-2 border border-gray-300 rounded-2xl text-2xl  hover:bg-gray-100"
+            className="px-4 py-2 border border-gray-300 rounded-2xl text-2xl hover:bg-gray-100"
           >
             {brand}
           </button>
@@ -107,13 +62,15 @@ export const Listings: React.FC = () => {
       {/* Scrollable Cards */}
       <div className="flex overflow-x-auto space-x-12 scrollbar-hide scroll-smooth pt-2">
         {cars.map((car) => (
+            // <Link to={`/${car._id}`} key={car._id}>
           <div
-            key={car.id}
-            className="max-w-[310px] max-h-[460px] border rounded-xl p-3 bg-white shadow-lg flex-shrink-0"
+            key={car._id}
+            onClick={() => navigate(`/${car._id}`)}
+            className="max-w-[310px] max-h-[460px] min-w-[310px]: border rounded-xl p-3 bg-white shadow-lg flex-shrink-0"
           >
             <div className="relative">
               <img
-                src={car.image}
+                src={car.image || a1} 
                 alt={car.model}
                 className="w-full h-70 object-cover rounded-lg"
               />
@@ -132,11 +89,11 @@ export const Listings: React.FC = () => {
                 <span>{car.location}</span>
                 <span>{car.date}</span>
               </div>
-              
-              
             </div>
           </div>
+          // </Link>
         ))}
+        
       </div>
     </section>
   );
