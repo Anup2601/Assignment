@@ -36,7 +36,7 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full mx-auto p-6 bg-white rounded-2xl">
+    <section className="relative w-full mx-auto p-6 bg-white rounded-2xl m-5">
       {/* Testimonial Content */}
       <div className="relative flex flex-col items-center text-center">
         <img
