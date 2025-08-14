@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import a1 from "../assets/a1.png";
 import a2 from "../assets/a2.jpg";
+import a3 from "../assets/image.png";
+import a4 from "../assets/WhatsApp Image 2025-08-11 at 21.54.53_530c4982.jpg"
 
 interface Testimonial {
   id: number;
@@ -9,9 +11,9 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-  { id: 1, image: a1 },
+  { id: 1, image: a4 },
   { id: 2, image: a2 },
-  { id: 3, image: a1 },
+  { id: 3, image: a3 },
 ];
 
 export const Testimonials: React.FC = () => {
