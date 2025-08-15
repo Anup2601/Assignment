@@ -6,6 +6,9 @@ import { CarListings } from "../components/CarListings";
 import  {About}  from "../components/About";
 import { BikeListings } from "../components/BikeListings";
 import { Recommendation } from "../components/Recommendation";
+import { Footer } from "../layouts/footer";
+import Plan from "../components/Plan";
+
 
 export const Home: React.FC = () => {
   return (
@@ -18,6 +21,8 @@ export const Home: React.FC = () => {
         <BikeListings/>
         <Recommendation/>
         <About/>
+        <Plan/>
+        <Footer/>
     </>
     
   );
