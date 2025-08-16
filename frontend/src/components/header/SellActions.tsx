@@ -1,26 +1,80 @@
+import React from "react";
+import { Plus, MousePointerClick } from "lucide-react";
+
 export const SellActions: React.FC = () => {
+  const handleSellClick = () => {
+    window.open('https://example.com/sell', '_blank');
+  };
+
+  const handleOneClickSellClick = () => {
+    window.open('https://example.com/one-click-sell', '_blank');
+  };
+
   return (
     <div className="flex gap-8 items-center self-stretch my-auto text-sm tracking-wide min-w-60 text-neutral-900">
-      <button className="flex gap-2 items-center self-stretch  hover:bg-gray-50 transition-colors border border-neutral-900 px-4 py-2 rounded-full text-l">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/e28c0a2665f288476d1c4b70a28a41bf195649dc?placeholderIfAbsent=true&apiKey=3f7458e5d9a64c4696cf1cdfab9613a3"
-          className="object-contain shrink-0 self-stretch my-auto w-3 aspect-[1/1] fill-neutral-900 stroke-[1px] stroke-neutral-900"
-          alt="Sell icon"
-        />
-        <span className="self-stretch my-auto text-neutral-900">
+      {/* Sell Button with animated border */}
+      <button 
+        onClick={handleSellClick}
+        className="relative flex gap-2 items-center px-4 py-2 rounded-full bg-white text-neutral-900 transition-transform hover:scale-105 active:scale-95"
+      >
+        {/* Animated gradient border background */}
+        <div 
+          className="absolute inset-0 rounded-full p-1"
+          style={{
+            background: 'linear-gradient(45deg, #1e3a8a, #000000, #2563eb)',
+            animation: 'gradientRotate 1s linear infinite'
+          }}
+        >
+          <div className="w-full h-full rounded-full bg-white"></div>
+        </div>
+        
+        <span className="relative z-10 flex items-center gap-2">
+          <Plus size={16} />
           Sell
         </span>
       </button>
-      <button className="flex gap-1.5 items-center self-stretch hover:bg-gray-50 transition-colors border border-solid border-neutral-900 px-2 py-1 rounded-full text-l">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/c93d5756d4ac99708c55759445547cfa3100f7a7?placeholderIfAbsent=true&apiKey=3f7458e5d9a64c4696cf1cdfab9613a3"
-          className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
-          alt="One click sell icon"
-        />
-        <span className="self-stretch my-auto text-neutral-900 ">
+
+      {/* One Click Sell Button with animated border */}
+      <button 
+        onClick={handleOneClickSellClick}
+        className="relative flex gap-2 items-center px-4 py-2 rounded-full bg-white text-neutral-900 transition-transform hover:scale-105 active:scale-95"
+      >
+        {/* Animated gradient border background */}
+        <div 
+          className="absolute inset-0 rounded-full p-1"
+          style={{
+            background: 'linear-gradient(45deg, #2563eb, #1e3a8a, #000000)',
+            animation: 'gradientRotate 1s linear infinite 1s'
+          }}
+        >
+          <div className="w-full h-full rounded-full bg-white"></div>
+        </div>
+        
+        <span className="relative z-10 flex items-center gap-2">
+          <MousePointerClick size={16} />
           One Click sell
         </span>
       </button>
+
+      <style>{`
+        @keyframes gradientRotate {
+          0% {
+            background: linear-gradient(0deg, #1e3a8a, #000000, #2563eb, #1e3a8a);
+          }
+          25% {
+            background: linear-gradient(90deg, #2563eb, #1e3a8a, #000000, #2563eb);
+          }
+          50% {
+            background: linear-gradient(180deg, #000000, #2563eb, #1e3a8a, #000000);
+          }
+          75% {
+            background: linear-gradient(270deg, #1e3a8a, #000000, #2563eb, #1e3a8a);
+          }
+          100% {
+            background: linear-gradient(360deg, #2563eb, #1e3a8a, #000000, #2563eb);
+          }
+        }
+      `}</style>
     </div>
   );
 };

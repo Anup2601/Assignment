@@ -1,122 +1,109 @@
-import * as React from "react";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react';
+import Logo from '../assets/bid_logo.jpg';
 
-export const Footer: React.FC = () => {
-  const socialIcons = [
-    { icon: <Facebook size={21} />, href: "https://facebook.com", label: "Facebook" },
-    { icon: <Twitter size={21} />, href: "https://twitter.com", label: "Twitter" },
-    { icon: <Instagram size={21} />, href: "https://instagram.com", label: "Instagram" },
-    { icon: <Linkedin size={21} />, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <Youtube size={21} />, href: "https://youtube.com", label: "YouTube" },
-  ];
-
-  const productLinks = [
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Security", href: "#security" },
-  ];
-
-  const companyLinks = [
-    { label: "About", href: "#about" },
-    { label: "Careers", href: "#careers" },
-  ];
-
-  const legalLinks = [
-    { label: "Privacy Policy", href: "#privacy" },
-    { label: "Terms of Service", href: "#terms" },
-    { label: "Cookies Settings", href: "#cookies" },
-  ];
-
+const Footer = () => {
   return (
-    <footer className="flex flex-col bg-gray-800 text-white">
-      {/* Top Section */}
-      <div className="flex flex-wrap justify-between px-16 py-12 gap-10 max-md:px-5 max-md:flex-col">
+    <footer className="bg-slate-800 text-white">
+      <div className="max-w-8xl mx-auto">
+        <div className="grid grid-cols-1  lg:grid-cols-4 gap-12">
+          {/* Address and Contact Section */}
+          <div className="space-y-8 ml-18 mt-16">
+            <div>
+              <h3 className="text-xl font-bold">Address:</h3>
+              <p className="text-white-300 underline font-semibold cursor-pointer">
+                Level 1, 12 Sample St, Sydney NSW 2000
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold">Contact:</h3>
+              <p className="text-white-300 font-semibold cursor-pointer">+91 123 456 7890</p>
+              <p className="text-white-300 underline font-semibold cursor-pointer">contact@bidai.in</p>
+            </div>
+            
+            {/* Social Media Icons */}
+            <div className="flex space-x-4">
+              <Facebook className="size-6 text-black hover:bg-gray-400 cursor-pointer bg-white rounded-full p-0.5" />
+              <Instagram className="w-6 h-6 text-white-400 hover:text-gray-400 cursor-pointer" />
+              <Twitter className="w-6 h-6 text-white-400 hover:text-gray-400  cursor-pointer" />
+              <Linkedin className="w-6 h-6 text-white-400 hover:text-gray-400  cursor-pointer" />
+              <Youtube className="w-6 h-6 text-white-400 hover:text-gray-400  cursor-pointer" />
+            </div>
+          </div>
+          
+          {/* Product Section */}
+          <div className='ml-64'>
+            <h3 className="text-xl font-bold mb-6 mt-16 ">Product</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="#" className="text-white-300 font-semibold hover:text-white transition-colors cursor-pointer">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white-300 font-semibold  hover:text-white transition-colors cursor-pointer">
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white-300 font-semibold hover:text-white transition-colors cursor-pointer">
+                  Security
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Company Section */}
+          <div className='ml-24'>
+            <h3 className="text-xl font-bold mb-6 mt-16">Company</h3>
+            <ul className="space-y-4">
+              <li>
+                <a href="#" className="text-white-300 font-semibold hover:text-white transition-colors cursor-pointer">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white-300 font-semibold hover:text-white transition-colors cursor-pointer">
+                  Careers
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Logo Section */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="bg-white rounded-bl-full  p-18 w-1200 h-72 flex items-center justify-center">
+              {/* Replace this with your actual logo image */}
+              <img 
+                src={Logo} 
+                alt="BiD.ai Logo" 
+                className="max-w-full max-h-full object-contain"
+              /> 
+            </div>
+          </div>
+        </div>
         
-        {/* Contact Info */}
-        <section className="min-w-[250px] w-[425px]">
-          <h3 className="text-xl font-semibold">Address:</h3>
-          <address className="text-base underline not-italic">
-            Level 1, 12 Sample St, Sydney NSW 2000
-          </address>
-
-          <h3 className="mt-5 text-xl font-semibold">Contact:</h3>
-          <div className="text-base underline">
-            <a href="tel:+911234567890" className="block hover:opacity-80 transition-opacity">
-              +91 123 456 7890
-            </a>
-            <a href="mailto:contact@bidai.in" className="block hover:opacity-80 transition-opacity">
-              contact@bidai.in
-            </a>
-          </div>
-
-          {/* Social Links */}
-          <nav className="flex gap-3 mt-6" aria-label="Social media links">
-            {socialIcons.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={item.label}
-                className="hover:opacity-80 transition-opacity"
-              >
-                {item.icon}
+        {/* Bottom Section */}
+        <div className="border-t border-white-600 mt-12 pt-6 p-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-white-400 text-sm mb-4 md:mb-0">
+              © 2025 bidai. All rights reserved.
+            </p>
+            
+            <div className="flex space-x-6">
+              <a href="#" className="text-white-400 hover:text-white text-sm underline transition-colors">
+                Privacy Policy
               </a>
-            ))}
-          </nav>
-        </section>
-
-        {/* Navigation Links */}
-        <nav className="flex gap-10 text-xl font-medium text-center">
-          <div className="flex flex-col items-center">
-            <h3 className="text-2xl font-semibold">Product</h3>
-            {productLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="mt-4 hover:opacity-80 transition-opacity"
-              >
-                {link.label}
+              <a href="#" className="text-white-400 hover:text-white text-sm underline transition-colors">
+                Terms of Service
               </a>
-            ))}
-          </div>
-          <div className="flex flex-col items-center">
-            <h3 className="text-2xl font-semibold">Company</h3>
-            {companyLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="mt-4 hover:opacity-80 transition-opacity"
-              >
-                {link.label}
+              <a href="#" className="text-white-400 hover:text-white text-sm underline transition-colors">
+                Cookies Set
               </a>
-            ))}
+            </div>
           </div>
-        </nav>
-
-        {/* Decorative Icon */}
-        <div className="flex items-center justify-center text-gray-400 text-6xl">
-          <Linkedin size={100} />
         </div>
       </div>
-
-      {/* Footer Bottom */}
-      <section className="px-16 py-6 border-t border-gray-600 max-md:px-5">
-        <div className="flex flex-wrap justify-between gap-6 text-sm">
-          <p>© 2025 bidai. All rights reserved.</p>
-          <nav className="flex gap-6 underline" aria-label="Legal links">
-            {legalLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="hover:opacity-80 transition-opacity"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </section>
     </footer>
   );
 };

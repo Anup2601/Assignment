@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import a1 from "../assets/a1.png";
 import a2 from "../assets/a2.jpg";
-import a3 from "../assets/image.png";
-import a4 from "../assets/WhatsApp Image 2025-08-11 at 21.54.53_530c4982.jpg"
+import s1 from "../assets/s1.png";
+import s2 from "../assets/s2.png";
+import s3 from "../assets/s3.png";
 
 interface Testimonial {
   id: number;
@@ -11,9 +11,10 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-  { id: 1, image: a4 },
-  { id: 2, image: a2 },
-  { id: 3, image: a3 },
+  { id: 1, image: a2 },
+  { id: 2, image: s1 },
+  { id: 3, image: s2 },
+  { id: 3, image: s3 },
 ];
 
 export const Testimonials: React.FC = () => {
@@ -38,12 +39,12 @@ export const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full mx-auto p-6 bg-white rounded-2xl m-5">
+    <section className="relative  p-6 bg-white rounded-2xl m-5 mx-10">
       {/* Testimonial Content */}
       <div className="relative flex flex-col items-center text-center">
         <img
           src={testimonials[currentIndex].image}
-          className="rounded-xl"
+          className="rounded-2xl"
         />
 
         {/* Slide Indicators */}

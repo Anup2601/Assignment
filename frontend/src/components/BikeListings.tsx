@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import a1 from "../assets/a3.jpg";
+import a1 from "../assets/bike1.jpg";
 import { useNavigate } from "react-router-dom";
 
 interface Bike {
@@ -17,12 +17,12 @@ interface Bike {
 }
 
 const brands = [
-  "Mahindra & Mahindra",
-  "Tata Motors",
-  "Maruti Suzuki",
-  "Hyundai",
-  "Honda",
-  "Toyota",
+  "TVS Motor",
+  "Bajaj Auto",
+  "Royal Enfield",
+  "Yamaha Motor Company",
+  "KTM",
+  "Suzuki"
 ];
 
 export const BikeListings: React.FC = () => {
@@ -52,15 +52,46 @@ export const BikeListings: React.FC = () => {
         {brands.map((brand) => (
           <button
             key={brand}
-            className="px-4 py-2 border border-gray-300 rounded-2xl text-2xl hover:bg-gray-100"
+            className="relative flex gap-2 items-center px-4 py-2 rounded-full bg-white text-neutral-900 transition-transform hover:scale-105 active:scale-95"
           >
-            {brand}
+            {/* Animated gradient border background */}
+        <div 
+          className="absolute inset-0 rounded-full p-0.5"
+          style={{
+            background: 'linear-gradient(45deg, #2563eb, #1e3a8a, #000000)',
+            animation: 'gradientRotate 1s linear infinite 1s'
+          }}
+        >
+          <div className="w-full h-full rounded-full bg-white"></div>
+        </div>
+            <span className="relative z-10 flex items-center gap-2 text-2xl">
+              {brand}
+                    </span>
           </button>
         ))}
+         <style>{`
+        @keyframes gradientRotate {
+          0% {
+            background: linear-gradient(0deg, #1e3a8a, #000000, #2563eb, #1e3a8a);
+          }
+          25% {
+            background: linear-gradient(90deg, #2563eb, #1e3a8a, #000000, #2563eb);
+          }
+          50% {
+            background: linear-gradient(180deg, #000000, #2563eb, #1e3a8a, #000000);
+          }
+          75% {
+            background: linear-gradient(270deg, #1e3a8a, #000000, #2563eb, #1e3a8a);
+          }
+          100% {
+            background: linear-gradient(360deg, #2563eb, #1e3a8a, #000000, #2563eb);
+          }
+        }
+      `}</style>
       </div>
 
       {/* Scrollable Cards */}
-      <div className="flex overflow-x-auto space-x-12 scrollbar-hide scroll-smooth pt-2">
+      <div className="flex overflow-x-auto space-x-12 scroll-hidden scroll-smooth pt-2">
         {bikes.map((bike) => (
             // <Link to={`/${car._id}`} key={car._id}>
           <div

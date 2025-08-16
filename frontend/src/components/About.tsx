@@ -1,5 +1,7 @@
 import a1 from "../assets/a1.png";
-// import a3 from "../assets/a3.jpg";
+import a2 from "../assets/a21.jpg";
+import a3 from "../assets/a22.jpg";
+
 
 export const About: React.FC = () => {
   return (
@@ -27,7 +29,7 @@ export const About: React.FC = () => {
         {/* Card 2 */}
         <div className="flex flex-col items-center">
           <img
-            src={a1}
+            src={a2}
             alt="Sell fast"
             className="size-50 object-cover rounded-lg"
           />
@@ -40,7 +42,7 @@ export const About: React.FC = () => {
         {/* Card 3 */}
         <div className="flex flex-col items-center">
           <img
-            src={a1}
+            src={a3}
             alt="Bidding"
             className="size-50 object-cover rounded-lg"
           />

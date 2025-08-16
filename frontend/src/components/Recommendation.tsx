@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import a1 from "../assets/a3.jpg";
+import a1 from "../assets/frige.jpg"
 import { useNavigate } from "react-router-dom";
 
 interface Recommendation {
@@ -39,7 +39,7 @@ export const Recommendation: React.FC = () => {
       </div>
 
       {/* Scrollable Cards */}
-      <div className="flex overflow-x-auto space-x-12 scrollbar-hide scroll-smooth pt-2">
+      <div className="flex overflow-x-auto space-x-12 scroll-hidden scroll-smooth pt-2">
         {recommendations.map((recommendation) => (
             // <Link to={`/${recommendation._id}`} key={recommendation._id}>
           <div
