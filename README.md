@@ -154,9 +154,6 @@ To run this project, you will need to add the following environment variables to
 PORT=5000
 ```
 
-```bash
-MONGO_URI=mongodb+srv://anupm0873:1SSN6jooV4toHYmm@cluster0.ulnqxxr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-```
 
 ```bash
 NODE_ENV=development
